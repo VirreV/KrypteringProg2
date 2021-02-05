@@ -1,0 +1,13 @@
+D:\GitRepositories\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.exe
+D:\GitRepositories\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.deps.json
+D:\GitRepositories\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.runtimeconfig.json
+D:\GitRepositories\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.runtimeconfig.dev.json
+D:\GitRepositories\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.dll
+D:\GitRepositories\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.pdb
+D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.csprojAssemblyReference.cache
+D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.csproj.CoreCompileInputs.cache
+D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.AssemblyInfoInputs.cache
+D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.AssemblyInfo.cs
+D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.dll
+D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.pdb
+D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.genruntimeconfig.cache

@@ -63,5 +63,17 @@ namespace KrypteringProg2
             }
             return AllMsg;
         }
+
+        protected string GetUserMsg(string user){
+            string AllMsg = "";
+            xmlDoc.Load(xmlPath);
+            foreach(XmlNode node in xmlDoc.SelectNodes("msgList/Meddelande")){
+                if(node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1) == user){
+                    AllMsg += "User: " + encrypter.Decrypt(node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1)) + "\n\t: " + encrypter.Decrypt(node.SelectSingleNode("Text").InnerText) + "\n";
+                }
+            }
+            if(AllMsg == "") AllMsg = "No messages from your were found!";
+            return AllMsg;
+        }
     }
 }

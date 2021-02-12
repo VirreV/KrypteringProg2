@@ -95,6 +95,7 @@ namespace KrypteringProg2
                             break;
                         case "uMes":
                             //Skicka alla meddelanden från den användaren
+                            Sender(base.GetUserMsg(user[count]), socket[count]);
                             break;
                         case "uStr":
                             //Tar emot avsändarens användarnamn

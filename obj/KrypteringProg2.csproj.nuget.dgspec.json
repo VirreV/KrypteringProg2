@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitRepositories\\KrypteringProg2\\KrypteringProg2.csproj": {}
+    "G:\\Min enhet\\GitHub Repository\\KrypteringProg2\\KrypteringProg2.csproj": {}
   },
   "projects": {
-    "D:\\GitRepositories\\KrypteringProg2\\KrypteringProg2.csproj": {
+    "G:\\Min enhet\\GitHub Repository\\KrypteringProg2\\KrypteringProg2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitRepositories\\KrypteringProg2\\KrypteringProg2.csproj",
+        "projectUniqueName": "G:\\Min enhet\\GitHub Repository\\KrypteringProg2\\KrypteringProg2.csproj",
         "projectName": "KrypteringProg2",
-        "projectPath": "D:\\GitRepositories\\KrypteringProg2\\KrypteringProg2.csproj",
-        "packagesPath": "C:\\Users\\karlv\\.nuget\\packages\\",
-        "outputPath": "D:\\GitRepositories\\KrypteringProg2\\obj\\",
+        "projectPath": "G:\\Min enhet\\GitHub Repository\\KrypteringProg2\\KrypteringProg2.csproj",
+        "packagesPath": "C:\\Users\\viktor.linden1\\.nuget\\packages\\",
+        "outputPath": "G:\\Min enhet\\GitHub Repository\\KrypteringProg2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\karlv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\viktor.linden1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

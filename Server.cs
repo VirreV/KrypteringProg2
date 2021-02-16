@@ -87,7 +87,7 @@ namespace KrypteringProg2
                             for(int i = 4; i < clientMessageSize; i++){
                                 message += Convert.ToChar(clientMessage[i]);
                             }
-                            base.XMLAddMsg(encrypter.Encrypt(message), encrypter.Encrypt(clientIp) + " " + user[count]);
+                            base.XMLAddMsg(message, clientIp + " " + user[count]);
                             break;
                         case "sMes":
                             //Skicka alla meddelanden
@@ -104,7 +104,7 @@ namespace KrypteringProg2
                                 name += Convert.ToChar(clientMessage[i]);
                             }
                             name.Trim(' ');
-                            user[count] = encrypter.Encrypt(name);
+                            user[count] = name;
                             break;
                         case "disc":
                             //Client disconnected

@@ -11,14 +11,3 @@ D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.Assem
 D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.dll
 D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.pdb
 D:\GitRepositories\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.genruntimeconfig.cache
-G:\Min enhet\GitHub Repository\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.exe
-G:\Min enhet\GitHub Repository\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.deps.json
-G:\Min enhet\GitHub Repository\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.runtimeconfig.json
-G:\Min enhet\GitHub Repository\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.runtimeconfig.dev.json
-G:\Min enhet\GitHub Repository\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.dll
-G:\Min enhet\GitHub Repository\KrypteringProg2\bin\Debug\netcoreapp3.1\KrypteringProg2.pdb
-G:\Min enhet\GitHub Repository\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.csprojAssemblyReference.cache
-G:\Min enhet\GitHub Repository\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.AssemblyInfoInputs.cache
-G:\Min enhet\GitHub Repository\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.AssemblyInfo.cs
-G:\Min enhet\GitHub Repository\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.dll
-G:\Min enhet\GitHub Repository\KrypteringProg2\obj\Debug\netcoreapp3.1\KrypteringProg2.pdb

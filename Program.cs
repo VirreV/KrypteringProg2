@@ -16,7 +16,6 @@ namespace KrypteringProg2
         protected static string xmlPath = "serverLog.xml";
         protected static int msgCount;
         protected static XmlDocument xmlDoc = new XmlDocument();
-        protected static Encrypter encrypter;
 
         static void Main(string[] args)
         {
@@ -31,7 +30,6 @@ namespace KrypteringProg2
             }
             xmlDoc.Load(xmlPath);
             msgCount = xmlDoc.SelectNodes("msgList/Meddelande").Count;
-            encrypter = new Encrypter();
             Server server = new Server();
         }
 
@@ -59,7 +57,7 @@ namespace KrypteringProg2
             string AllMsg = "";
             xmlDoc.Load(xmlPath);
             foreach(XmlNode node in xmlDoc.SelectNodes("msgList/Meddelande")){
-                AllMsg += "User: " + encrypter.Decrypt(node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1)) + "\n\t: " + encrypter.Decrypt(node.SelectSingleNode("Text").InnerText) + "\n";
+                AllMsg += node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1) + "\t" + node.SelectSingleNode("Text").InnerText + "\n";
             }
             return AllMsg;
         }
@@ -69,10 +67,10 @@ namespace KrypteringProg2
             xmlDoc.Load(xmlPath);
             foreach(XmlNode node in xmlDoc.SelectNodes("msgList/Meddelande")){
                 if(node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1) == user){
-                    AllMsg += "User: " + encrypter.Decrypt(node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1)) + "\n\t: " + encrypter.Decrypt(node.SelectSingleNode("Text").InnerText) + "\n";
+                    AllMsg += node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1) + "\t" + node.SelectSingleNode("Text").InnerText + "\n";
                 }
             }
-            if(AllMsg == "") AllMsg = "No messages from your were found!";
+            if(AllMsg == "") AllMsg = "-";
             return AllMsg;
         }
     }

@@ -16,13 +16,11 @@ namespace KrypteringProg2
         private List<Socket> socket = new List<Socket>();
         private List<string> user = new List<string>();
         private List<TcpListener> tcpListener = new List<TcpListener>();
-        private Byte[] clientMessage;
         private int clientMessageSize = 0;
         private string clientIp = "";
 
         public Server()
         {
-            clientMessage = null;
             IPAddress myIp = IPAddress.Any;
             int port = 8001;
             Console.WriteLine("IP: " + myIp + ":" + port);
@@ -87,7 +85,7 @@ namespace KrypteringProg2
                             for(int i = 4; i < clientMessageSize; i++){
                                 message += Convert.ToChar(clientMessage[i]);
                             }
-                            base.XMLAddMsg(message, clientIp + " " + user[count]);
+                            base.AddMsg(message, clientIp + " " + user[count]);
                             break;
                         case "sMes":
                             //Skicka alla meddelanden
@@ -109,6 +107,7 @@ namespace KrypteringProg2
                         case "disc":
                             //Client disconnected
                             connected[count] = false;
+                            SaveXML();
                             break;
                         default:
                             throw new ApplicationException("Incorrect action code given");

@@ -13,12 +13,12 @@ namespace KrypteringProg2
 {
     class Program
     {
-        protected static string xmlPath = "serverLog.xml";
-        protected static int msgCount;
-        protected static XmlDocument xmlDoc = new XmlDocument();
+        static List<Message> msgs = new List<Message>();
+        static string xmlPath = "serverLog.xml";
 
         static void Main(string[] args)
         {
+            XmlDocument xmlDoc = new XmlDocument();
             if (!(File.Exists(xmlPath)))
             {
                 XmlDocument newXml = new XmlDocument();
@@ -29,45 +29,65 @@ namespace KrypteringProg2
                 newXml.Save(xmlPath);
             }
             xmlDoc.Load(xmlPath);
-            msgCount = xmlDoc.SelectNodes("msgList/Meddelande").Count;
+            for(int i = 0; i < xmlDoc.SelectNodes("msgList/Meddelande").Count; i++){
+                msgs.Add(new Message(xmlDoc.SelectNodes("msgList/Meddelande")[i].SelectSingleNode("Avsändare").InnerText, xmlDoc.SelectNodes("msgList/Meddelande")[i].SelectSingleNode("Text").InnerText, i + 1));
+            }
+            Thread saveThread = new Thread(() => {
+                while(true){
+                    if(Console.ReadKey(true).Key == ConsoleKey.S){
+                        SaveXML();
+                    }
+                }
+            });
+            saveThread.Start();
             Server server = new Server();
         }
 
-        protected void XMLAddMsg(string str, string user){
-            msgCount++;
-            xmlDoc.Load(xmlPath);
-            XmlNode list = xmlDoc.SelectSingleNode("msgList");
-            XmlElement msg = xmlDoc.CreateElement("Meddelande");
-            XmlElement usr = xmlDoc.CreateElement("Avsändare");
-            usr.InnerText = user;
-            XmlElement mId = xmlDoc.CreateElement("MeddelandeID");
-            mId.InnerText = msgCount.ToString();
-            XmlElement txt = xmlDoc.CreateElement("Text");
-            txt.InnerText = str;
+        protected static void SaveXML(){
+            XmlDocument doc = new XmlDocument();
+            XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
+            doc.AppendChild(xmlDeclaration);
+            XmlElement eMsgList = doc.CreateElement("msgList");
+            doc.AppendChild(eMsgList);
+            System.Console.WriteLine(msgs.Count());
+            foreach(Message m in msgs){
+                XmlElement eMsg = doc.CreateElement("Meddelande");
+                XmlElement eUser = doc.CreateElement("Avsändare");
+                XmlElement eText = doc.CreateElement("Text");
+                XmlElement eID = doc.CreateElement("MeddelandeID");
 
-            msg.AppendChild(usr);
-            msg.AppendChild(mId);
-            msg.AppendChild(txt);
-            list.AppendChild(msg);
+                eUser.InnerText = m.User;
+                eText.InnerText = m.Text;
+                eID.InnerText = m.Id.ToString();
 
-            xmlDoc.Save(xmlPath);
+                eMsg.AppendChild(eUser);
+                eMsg.AppendChild(eID);
+                eMsg.AppendChild(eText);
+
+                eMsgList.AppendChild(eMsg);
+            }
+            doc.Save(xmlPath);
+            Console.WriteLine("Saved messages");
+        }
+
+        protected void AddMsg(string str, string user){
+            msgs.Add(new Message(user, str, msgs.Count + 1));
         }
 
         protected string GetAllMsg(){
             string AllMsg = "";
-            xmlDoc.Load(xmlPath);
-            foreach(XmlNode node in xmlDoc.SelectNodes("msgList/Meddelande")){
-                AllMsg += node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1) + "\t" + node.SelectSingleNode("Text").InnerText + "\n";
+            foreach(Message m in msgs){
+                AllMsg += m.UserName + "\t" + m.Text + "\n";
             }
+            if(AllMsg == "") AllMsg = "-";
             return AllMsg;
         }
 
         protected string GetUserMsg(string user){
             string AllMsg = "";
-            xmlDoc.Load(xmlPath);
-            foreach(XmlNode node in xmlDoc.SelectNodes("msgList/Meddelande")){
-                if(node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1) == user){
-                    AllMsg += node.SelectSingleNode("Avsändare").InnerText.Substring(node.SelectSingleNode("Avsändare").InnerText.IndexOf(' ') + 1) + "\t" + node.SelectSingleNode("Text").InnerText + "\n";
+            foreach(Message m in msgs){
+                if(m.UserName == user){
+                    AllMsg += m.UserName + "\t" + m.Text + "\n";
                 }
             }
             if(AllMsg == "") AllMsg = "-";
